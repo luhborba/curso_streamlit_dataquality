@@ -1,6 +1,9 @@
 """Arquivo de Schema de Funcionarios."""
-from pydantic import BaseModel, EmailStr, PositiveInt
+
 from datetime import datetime
+
+from pydantic import BaseModel, EmailStr, PositiveInt
+
 
 class ContratoFuncionarios(BaseModel):
     """
