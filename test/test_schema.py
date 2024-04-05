@@ -1,16 +1,18 @@
 """Arquivo de teste do schema definido."""
 
+from datetime import datetime
+
 import pytest
 from pydantic import ValidationError
+
 from src.schema import ContratoFuncionarios
-from datetime import datetime
 
 
 def test_validar_contrato():
     """Teste para validar o schema."""
     dados_validos = {
-        "id" : 1,
-        "nome" : "Gustavo",
+        "id": 1,
+        "nome": "Gustavo",
         "idade": 18,
         "datanascimento": datetime.now(),
         "email": "gustavo@email.com",
@@ -19,13 +21,14 @@ def test_validar_contrato():
     }
     funcionario = ContratoFuncionarios(**dados_validos)
 
-    assert funcionario.id == dados_validos['id']
-    assert funcionario.nome == dados_validos['nome']
-    assert funcionario.idade == dados_validos['idade']
-    assert funcionario.datanascimento == dados_validos['datanascimento']
-    assert funcionario.email == dados_validos['email']
-    assert funcionario.cargo == dados_validos['cargo']
-    assert funcionario.departamento == dados_validos['departamento']
+    assert funcionario.id == dados_validos["id"]
+    assert funcionario.nome == dados_validos["nome"]
+    assert funcionario.idade == dados_validos["idade"]
+    assert funcionario.datanascimento == dados_validos["datanascimento"]
+    assert funcionario.email == dados_validos["email"]
+    assert funcionario.cargo == dados_validos["cargo"]
+    assert funcionario.departamento == dados_validos["departamento"]
+
 
 def test_email_invalidos_contrato_funcionario():
     """Testa se o schema de dados é invalido."""
@@ -40,7 +43,8 @@ def test_email_invalidos_contrato_funcionario():
     }
     with pytest.raises(ValidationError):
         ContratoFuncionarios(**dados_invalidos)
-        
+
+
 def test__n_negativo_dados_invalidos():
     """Testa se o schema de dados é invalido."""
     dados_invalidos = {

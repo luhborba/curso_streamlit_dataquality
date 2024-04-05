@@ -1,8 +1,8 @@
 import subprocess
+from time import sleep
 
 import pytest
 from selenium import webdriver
-from time import sleep
 
 
 @pytest.fixture
@@ -18,9 +18,11 @@ def driver():
     driver.quit()
     processo.kill()
 
+
 def test_open_app(driver):
     driver.get("http://localhost:8501")
     sleep(2)
+
 
 def test_title_app(driver):
     driver.get("http://localhost:8501")
