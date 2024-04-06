@@ -19,6 +19,9 @@ selenium = "^4.19.0"
 pytest = "^8.1.1"
 pydantic = {extras = ["email"], version = "^2.6.4"}
 sqlalchemy = "^2.0.29"
+mkdocs-dracula-theme = "^1.0.7"
+mkdocs-material = "^9.5.17"
+mkdocstrings = {extras = ["python"], version = "^0.24.3"}
 
 
 [build-system]
