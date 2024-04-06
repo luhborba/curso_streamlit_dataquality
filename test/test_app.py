@@ -7,6 +7,7 @@ from selenium import webdriver
 
 @pytest.fixture
 def driver():
+    """Função que inicializa o Selenium e o WebDriver."""
     processo = subprocess.Popen(["streamlit", "run", "main.py"])
 
     driver = webdriver.Chrome()
@@ -20,11 +21,13 @@ def driver():
 
 
 def test_open_app(driver):
+    """Testa se o site está aberindo corretamente."""
     driver.get("http://localhost:8501")
     sleep(2)
 
 
 def test_title_app(driver):
+    """Testa se o site está com o titulo correto."""
     driver.get("http://localhost:8501")
     sleep(2)
     assert driver.title == "Validador de CSV"

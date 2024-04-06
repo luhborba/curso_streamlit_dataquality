@@ -45,7 +45,7 @@ def validar_e_inserir_no_banco(csv, session):
 
 
 def main():
-    """Função principal."""
+    """Função principal onde executo o Streamlit para validar o CSV."""
     st.set_page_config(page_title="Validador de CSV", layout="wide")
     st.title("Validador de CSV")
     session = criar_sessao()
