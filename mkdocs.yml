@@ -1,0 +1,10 @@
+site_name: Doc - DataQuality CSV
+
+theme:
+  name: dracula
+
+plugins:
+  - search
+  - mkdocstrings:
+      default_handler: python
+
