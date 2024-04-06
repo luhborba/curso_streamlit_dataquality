@@ -1,8 +1,9 @@
-from sqlalchemy import create_engine, Column, Integer, String, DateTime
-from sqlalchemy.orm import sessionmaker
+from sqlalchemy import Column, DateTime, Integer, String, create_engine
 from sqlalchemy.ext.declarative import declarative_base
+from sqlalchemy.orm import sessionmaker
 
 Base = declarative_base()
+
 
 class Funcionarios(Base):
     __tablename__ = "funcionarios"
@@ -15,8 +16,9 @@ class Funcionarios(Base):
     cargo = Column(String)
     departamento = Column(String)
 
+
 def criar_sessao():
-    engine = create_engine('sqlite:///funcionarios.db')
+    engine = create_engine("sqlite:///funcionarios.db")
     Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
     return Session()

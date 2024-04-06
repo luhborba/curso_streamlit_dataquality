@@ -1,9 +1,10 @@
-import pandas as pd
-import streamlit as st
 from datetime import datetime
 
+import pandas as pd
+import streamlit as st
+
+from src.database import Funcionarios, criar_sessao
 from src.schema import ContratoFuncionarios
-from src.database import criar_sessao, Funcionarios
 
 
 def validar_e_inserir_no_banco(csv, session):
@@ -22,7 +23,9 @@ def validar_e_inserir_no_banco(csv, session):
         for idx, row in df.iterrows():
             try:
                 ContratoFuncionarios(**row.to_dict())
-                row['datanascimento'] = datetime.strptime(row['datanascimento'], '%Y-%m-%d')
+                row["datanascimento"] = datetime.strptime(
+                    row["datanascimento"], "%Y-%m-%d"
+                )
                 dados_validos.append(Funcionarios(**row.to_dict()))
             except Exception as e:
                 erros.append(f"Error na Linha:{idx+2} de {e}")
